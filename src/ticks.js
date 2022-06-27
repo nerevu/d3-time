@@ -14,6 +14,12 @@ import utcDay from "./utcDay.js";
 import {utcSunday as utcWeek} from "./utcWeek.js";
 import utcMonth from "./utcMonth.js";
 import utcYear from "./utcYear.js";
+import timezoneMinute from "./timezoneMinute.js";
+import timezoneHour from "./timezoneHour.js";
+import timezoneDay from "./timezoneDay.js";
+import {timezoneSunday as timezoneWeek} from "./timezoneWeek.js";
+import timezoneMonth from "./timezoneMonth.js";
+import timezoneYear from "./timezoneYear.js";
 
 function ticker(year, month, week, day, hour, minute) {
 
@@ -61,4 +67,10 @@ function ticker(year, month, week, day, hour, minute) {
 const [utcTicks, utcTickInterval] = ticker(utcYear, utcMonth, utcWeek, utcDay, utcHour, utcMinute);
 const [timeTicks, timeTickInterval] = ticker(year, month, week, day, hour, minute);
 
-export {utcTicks, utcTickInterval, timeTicks, timeTickInterval};
+function getTimezoneTicker(tz) {
+  let results = ticker(timezoneYear(tz), timezoneMonth(tz), timezoneWeek(tz), timezoneDay(tz), timezoneHour(tz), timezoneMinute(tz));
+  const [timezoneTicks, timezoneTickInterval] = results;
+  return [timezoneTicks, timezoneTickInterval]
+}
+
+export {utcTicks, utcTickInterval, timeTicks, timeTickInterval, getTimezoneTicker};

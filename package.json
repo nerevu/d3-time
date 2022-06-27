@@ -34,7 +34,8 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "d3-array": "2 - 3"
+    "d3-array": "2 - 3",
+    "dayjs": "^1.11.2"
   },
   "devDependencies": {
     "eslint": "7",
